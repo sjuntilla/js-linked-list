@@ -70,9 +70,7 @@ function linkedListGenerator() {
             head = head.next;
             head = newN;
         } else if (get(num) === tail) {
-            tail.next = newN;
-            newN.next = null;
-            tail = newN;
+            add(val);
         } else if (get(num) === false) {
             return false;
         } else {
