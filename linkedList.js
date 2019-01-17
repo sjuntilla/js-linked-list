@@ -31,12 +31,28 @@ function linkedListGenerator() {
     };
 
     const get = (num) => {
-        let node = getHead();
+        let node = head;
+        if (num < 0) {
+            return false;
+        } else {
+            for (let i = 0; i < num; i++) {
+                if (node.next === null) {
+                    return false;
+                }
+                node = node.next;
+            }
+            return node;
 
+        }
     };
 
 
     const remove = (num) => {
+        if (num === null) {
+            return false;
+        } else if (get(num) === 0) {
+            return head;
+        }
 
     };
 
