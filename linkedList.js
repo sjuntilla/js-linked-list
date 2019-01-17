@@ -41,9 +41,9 @@ function linkedListGenerator() {
                 }
                 node = node.next;
             }
-            return node;
 
         }
+        return node;
     };
 
 
@@ -64,18 +64,17 @@ function linkedListGenerator() {
     const insert = (val, num) => {
         let newN = {
             value: val,
-            next: next
+            next: num
         };
+
         if (num === 0) {
             head = head.next;
             head = newN;
-        } else if (get(num) === tail) {
-            add(val);
         } else if (get(num) === false) {
             return false;
         } else {
+            newN.next = get(num);
             get(num - 1).next = newN;
-            newN.next = get(num + 1);
         }
 
     };
