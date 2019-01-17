@@ -53,11 +53,32 @@ function linkedListGenerator() {
         } else if (get(num) === tail) {
             get(num - 1).next = null;
             tail = get(num - 1);
+        } else if (get(num) === false) {
+            return false;
+        } else {
+            get(num - 1).next = get(num + 1);
         }
 
     };
 
     const insert = (val, num) => {
+        let newN = {
+            value: val,
+            next: next
+        };
+        if (num === 0) {
+            head = head.next;
+            head = newN;
+        } else if (get(num) === tail) {
+            tail.next = newN;
+            newN.next = null;
+            tail = newN;
+        } else if (get(num) === false) {
+            return false;
+        } else {
+            get(num - 1).next = newN;
+            newN.next = get(num + 1);
+        }
 
     };
 
