@@ -15,35 +15,32 @@ function linkedListGenerator() {
         return tail;
     };
     const add = (val) => {
-        let newN = {
+        let node = {
             value: val,
             next: null
         };
 
         if (!head) {
-            head = newN;
-            tail = newN;
+            head = node;
+            tail = node;
         } else {
-            tail.next = newN;
-            tail = newN;
+            tail.next = node;
+            tail = node;
         }
-        return newN;
+        return node;
     };
 
     const get = (num) => {
         let node = head;
-        if (num < 0) {
-            return false;
-        } else {
-            for (let i = 0; i < num; i++) {
-                if (node.next === null) {
-                    return false;
-                }
-                node = node.next;
+        let i = 0;
+        while (node) {
+            if (num === i) {
+                return node;
             }
-
+            i++;
+            node = node.next;
         }
-        return node;
+        return false;
     };
 
 
@@ -62,19 +59,19 @@ function linkedListGenerator() {
     };
 
     const insert = (val, num) => {
-        let newN = {
+        let node = {
             value: val,
-            next: num
+            next: null
         };
 
         if (num === 0) {
-            head = head.next;
-            head = newN;
+            node.next = head;
+            head = node;
         } else if (get(num) === false) {
             return false;
         } else {
-            newN.next = get(num);
-            get(num - 1).next = newN;
+            node.next = get(num);
+            get(num - 1).next = node;
         }
 
     };
