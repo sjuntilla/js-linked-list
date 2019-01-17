@@ -48,10 +48,10 @@ function linkedListGenerator() {
 
 
     const remove = (num) => {
-        if (num === null) {
+        if (num === 0) {
+            head = head.next;
+        } else if (get(num) === null) {
             return false;
-        } else if (get(num) === 0) {
-            return head;
         }
 
     };
